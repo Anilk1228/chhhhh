@@ -817,7 +817,7 @@ async def txt_handler(bot: Client, m: Message):
                 url = f"https://dragoapi.vercel.app/pdf/{url}"
             
             elif 'encrypted.m' in url:
-                appxkey = url.split('*')[1]
+                key = url.split('*')[1]
                 url = url.split('*')[0]
 
             if "youtu" in url:
@@ -963,7 +963,7 @@ async def txt_handler(bot: Client, m: Message):
                     prog = await bot.send_message(channel_id, Show, disable_web_page_preview=True)
                     try:
 
-                        res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)  
+                        res_file = await helper.download_and_decrypt_video(url, cmd, name, key)  
                         filename = res_file  
                         await prog.delete(True) 
                         if os.exists(filename):
@@ -1198,7 +1198,7 @@ async def text_handler(bot: Client, m: Message):
                 url = f"https://dragoapi.vercel.app/pdf/{url}"
             
             elif 'encrypted.m' in url:
-                appxkey = url.split('*')[1]
+                key = url.split('*')[1]
                 url = url.split('*')[0]
 
             if "youtu" in url:
@@ -1316,7 +1316,7 @@ async def text_handler(bot: Client, m: Message):
                            f"🔗𝐋𝐢𝐧𝐤 » {url}\n" \
                            f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
-                    res_file = await helper.download_and_decrypt_video(url, cmd, name, appxkey)  
+                    res_file = await helper.download_and_decrypt_video(url, cmd, name, key)  
                     filename = res_file  
                     await prog.delete(True)  
                     await helper.send_vid(bot, m, cc, filename, thumb, name, prog, channel_id, watermark=watermark)
