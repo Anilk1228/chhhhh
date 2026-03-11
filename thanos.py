@@ -21,7 +21,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from base64 import b64decode
 from requests.exceptions import RequestException
-from modules.topic_handler import send_video_with_fallback, send_document_with_fallback
+from topic_handler import send_video_with_fallback, send_document_with_fallback
 
 def duration(filename):
     if not Path(filename).exists():
