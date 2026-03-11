@@ -750,7 +750,7 @@ def download_raw_file(url: str, filename: str) -> str | None:
 # DOWNLOAD + DECRYPT WRAPPER
 # ==============================
 
-def download_and_decrypt_video(url: str, name: str, key: str = None) -> str | None:
+def download_and_decrypt_video(url: str, cmd: str, name: str, key: str = None) -> str | None:
     video_path = None
 
     for _ in range(5):  # resume attempts
